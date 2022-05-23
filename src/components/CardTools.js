@@ -9,16 +9,17 @@ const CardTools = ({ tool }) => {
             <div className="card-body">
                 <h2 className="card-title flex justify-between">
                     {tool.name}
-                    <div className="badge badge-secondary">{tool?.offer}</div>
+                    <div className="badge badge-error">{tool?.offer}</div>
                 </h2>
                 <p className='text-justify'>{tool.description}</p>
                 <p className='text-justify font-bold'>Price: ${tool.price}</p>
                 <p className='text-justify font-bold'>Min Order: {tool.order} Unit</p>
                 <p className='text-justify font-bold'>Available Order: {tool.available} Unit</p>
                 <div className="card-actions justify-center">
-                    <div className="btn btn-tiny btn-secondary" ><Link to="/purchase">Buy now</Link></div>
+                    <Link className='btn  btn-error ' to="/purchase">Buy now</Link>
+                    <Link className='btn  btn-error ' to="/purchase">Details</Link>
 
-                    <div className="btn btn-tiny btn-secondary">Details</div>
+                    
                 </div>
             </div>
         </div>

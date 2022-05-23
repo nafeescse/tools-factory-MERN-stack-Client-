@@ -1,8 +1,7 @@
 import React from 'react';
-import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../firebase.config';
+import auth from '../firebase.init';
 import { useForm } from 'react-hook-form';
 import Loading from '../components/Loading';
 
@@ -97,10 +96,10 @@ const Login = () => {
                             {load} <small className='text-red-500'>{errorMsg}</small>
                         </div>
 
-                        <input type='submit' value="Login" class="btn btn-secondary text-white
+                        <input type='submit' value="Login" className="btn btn-error text-white
                          w-full" />
                     </form>
-                    <p>New to Doctors Portal? <Link className='text-secondary' to="/signup">Create new account</Link></p>
+                    <p>New to Doctors Portal? <Link className='text-error' to="/signup">Create new account</Link></p>
 
 
                     <div className="divider">OR</div>
