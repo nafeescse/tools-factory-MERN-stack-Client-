@@ -46,7 +46,7 @@ const MyOrders = () => {
    
     return (
         <div>
-            <p className='text-3xl text-error font-bold mt-10 pb-3'>My Orders : {orders.length}</p>
+            <p className='text-3xl text-error font-bold mt-10 pb-3'>My Orders({orders.length})</p>
             <div class="w-full shadow-2xl ">
                 <table class="table w-full">
                     {/* <!-- head --> */}

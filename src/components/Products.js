@@ -17,7 +17,7 @@ const Products = () => {
                 {!tools.length && <Loading></Loading>}
                 
                 {
-                    tools.map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
+                    tools.reverse().map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
                 }
             </div>
 

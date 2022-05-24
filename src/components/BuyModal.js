@@ -47,10 +47,7 @@ const BuyModal = ({ tool }) => {
             .then(data => {
                 console.log('success', data);
                 toast('Order Placed successfully!!!');
-
-
                 navigate('/');
-
             })
         console.log(order);
 

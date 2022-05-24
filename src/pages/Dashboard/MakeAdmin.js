@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const MakeAdmin = () => {
     const [users, setUsers] = useState([]);
@@ -14,7 +15,9 @@ const MakeAdmin = () => {
                 setUsers(data);
                 // console.log(data);
             })
-    }, []);
+    }, [users]);
+
+
     const handleAdmin = email => {
         const proceed = window.confirm('Are you sure to make him Admin? ');
         if (proceed) {
@@ -25,10 +28,17 @@ const MakeAdmin = () => {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-                .then(res => res.json())
-                .then(data => console.log(data));
-            // const rest = users.filter(user => user._id !== id);
-            // setUsers(rest);
+                .then(res => {
+                    if(res.status === 403){
+                        toast(`Soory! You're not an Admin`);
+                    }
+                    return res.json()})
+                .then(data => {console.log(data);
+                toast(`Yay!! ${email} is now an Admin`);
+                });
+                
+
+
 
 
         }
@@ -65,13 +75,13 @@ const MakeAdmin = () => {
                     </thead>
                     <tbody>
                         {/* <!-- row 1 --> */}
-                        {users.reverse().map((user, index) =>
+                        {users.map((user, index) =>
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{user.email}</td>
 
                                 <td className=' justify-center'>
-                                    {user.role === 'admin' && <button onClick={() => { handleAdmin(user.email) }} class="btn btn-accent btn-xs">Make Admin </button>}
+                                    {user.role === 'admin' ? <p className='text-success'>Already an Admin</p> : <button onClick={() => { handleAdmin(user.email) }} class="btn btn-accent btn-xs">Make Admin </button>}
                                 </td>
                                 <td>
                                     <button onClick={() => {

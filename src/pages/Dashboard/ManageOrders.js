@@ -12,7 +12,7 @@ const queryClient = new QueryClient()
  }
  
 const Example = () => {
-    const {data: orders, error, isLoading} = useQuery('orders', ()=> fetch('http://localhost:5000/orders').then(res => res.json()));
+    const {data: orders, error, isLoading, refetch} = useQuery('orders', ()=> fetch('http://localhost:5000/orders').then(res => res.json()));
     if(isLoading){
         return <Loading></Loading>
     }
@@ -28,7 +28,7 @@ const Example = () => {
                 .then(res => res.json())
                 .then(data => console.log(data));
             const rest = orders.filter(order => order._id !== id);
-            document.location.reload();
+            // document.location.reload();
        
 
         }
@@ -36,7 +36,7 @@ const Example = () => {
 
     return (
         <div>
-            <p className='text-3xl text-error font-bold mt-10 pb-3'>My Orders : {orders.length}</p>
+            <p className='text-3xl text-error font-bold mt-10 pb-3'>All Orders({orders.length})</p>
             <div class="w-full shadow-2xl ">
                 <table class="table w-full">
                     {/* <!-- head --> */}
@@ -54,7 +54,7 @@ const Example = () => {
                     <tbody>
                         {/* <!-- row 1 --> */}
                         {orders.reverse().map((order, index) =>
-                            <tr>
+                            <tr key={index} refetch={refetch}>
                                 <th>{index + 1}</th>
                                 <td>{order.user}</td>
                                 <td>{order.email}</td>
