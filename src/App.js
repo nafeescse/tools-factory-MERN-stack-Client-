@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Purchase from './pages/Purchase';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Blogs from './pages/Blogs';
 import Portfolio from './pages/Portfolio';
 import Signup from './pages/Signup';
@@ -16,6 +16,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import MyOrders from './components/MyOrders';
 import MyReviews from './components/MyReviews';
 import Profile from './pages/Profile';
+import AddProducts from './pages/Dashboard/AddProducts';
+import ManageOrders from './pages/Dashboard/ManageOrders';
+import ManageProducts from './pages/Dashboard/ManageProducts';
+import MakeAdmin from './pages/Dashboard/MakeAdmin';
 
 function App() {
   return (
@@ -29,13 +33,16 @@ function App() {
         <Route index element={<MyOrders></MyOrders>}></Route>
         <Route path='reviews' element={<MyReviews></MyReviews>}></Route>
         <Route  path='profile' element={<Profile></Profile>}></Route>
+        <Route path='addproducts' element={<AddProducts></AddProducts>}></Route>
+        <Route  path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
+        <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
+        <Route  path='makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/' element={<Home></Home>}></Route>
-        {/* <Route path='/' element={<Home></Home>}></Route> */}
       </Routes>
       <ToastContainer />
     </div>

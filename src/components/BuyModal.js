@@ -7,7 +7,7 @@ import auth from '../firebase.init';
 import { useForm } from 'react-hook-form';
 
 const BuyModal = ({ tool }) => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, setValue, formState: { errors }, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
     let date = new Date();
     const navigate = useNavigate();
@@ -18,6 +18,7 @@ const BuyModal = ({ tool }) => {
         const price = tool.price;
         const phone = event.phone;
         const address = event.address;
+        const name = event.name;
 
 
 
@@ -31,7 +32,7 @@ const BuyModal = ({ tool }) => {
             totalPrice: qty * price,
             phone: phone,
             address: address,
-            user: user.displayName,
+            user:  name,
             email: user.email
         }
         fetch('http://localhost:5000/orders', {
@@ -47,7 +48,9 @@ const BuyModal = ({ tool }) => {
                 console.log('success', data);
                 toast('Order Placed successfully!!!');
 
+
                 navigate('/');
+
             })
         console.log(order);
 
@@ -64,12 +67,39 @@ const BuyModal = ({ tool }) => {
 
 
                     <form onSubmit={handleSubmit(handleBooking)} className='  text-neutral form-control w-full max-w-lg'>
+
+                        <div className="form-control w-full max-w-xs text-neutral">
+                            <label className="label">
+                                <span className="">Your Name</span>
+
+                            </label>
+                            <input type="name" className="input input-bordered w-full max-w-xs" {...register("name")} />
+
+                        </div>
+                        <div className="form-control w-full max-w-xs text-neutral">
+                            <label className="label">
+                                <span className="">Your Phone Number</span>
+
+                            </label>
+                            <input onClick={() => { setValue("qty", `${tool.order}`) }} type="phone" className="input input-bordered w-full max-w-xs" {...register("phone")} />
+
+                        </div>
+
+                        <div className="form-control w-full max-w-xs text-neutral">
+                            <label className="label">
+                                <span className="">Your Address</span>
+
+                            </label>
+                            <input tool={tool} type="address" className="input input-bordered w-full max-w-xs" {...register("address")} />
+
+                        </div>
                         <div className="form-control w-full max-w-xs text-neutral">
                             <label className="label">
                                 <span className="">Enter quantity</span>
 
                             </label>
                             <input tool={tool} type="qty" className="input input-bordered w-full max-w-xs" {...register("qty", {
+
                                 min: {
                                     value: `${tool.order}`,
                                     message: `Quantity must be greater than ${tool.order}` // JS only: <p>error message</p> TS only support string
@@ -80,22 +110,6 @@ const BuyModal = ({ tool }) => {
                                 },
                             })} />
                             <small className='text-error mt-1'>{errors.qty?.message}</small>
-                        </div>
-                        <div className="form-control w-full max-w-xs text-neutral">
-                            <label className="label">
-                                <span className="">Your Phone Number</span>
-
-                            </label>
-                            <input type="phone" className="input input-bordered w-full max-w-xs" {...register("phone")} />
-
-                        </div>
-                        <div className="form-control w-full max-w-xs text-neutral">
-                            <label className="label">
-                                <span className="">Your Address</span>
-
-                            </label>
-                            <input tool={tool} type="address" className="input input-bordered w-full max-w-xs" {...register("address")} />
-
                         </div>
 
                         <input type="submit" value='Confirm' className='btn btn-active btn-error max-w-lg  mt-5' />

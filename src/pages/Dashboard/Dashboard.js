@@ -24,6 +24,10 @@ const Dashboard = () => {
                         <div className="divider"></div>
                         <li><Link to="/dashboard">My Orders</Link></li>
                         <li><Link to="/dashboard/reviews">My Reviews</Link></li>
+                        <li><Link to="/dashboard/addproducts">Add Products</Link></li>
+                        <li><Link to="/dashboard/manageorders">Manage All Orders</Link></li>
+                        <li><Link to="/dashboard/manageproducts">Manage Products</Link></li>
+                        <li><Link to="/dashboard/makeadmin">Make Admin</Link></li>
                         <li><Link to="/dashboard/profile">My Profile</Link></li>
                     </ul>
 
