@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
 import { useForm } from 'react-hook-form';
 import Loading from '../components/Loading';
+import useToken from '../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -27,6 +28,7 @@ const Login = () => {
     let errorMsg;
     let load;
     const navigate = useNavigate();
+    const [token] = useToken(user || gUser);
 
     if (error || gError) {
         errorMsg = <p>{error?.message || gError?.message}</p>
@@ -37,9 +39,11 @@ const Login = () => {
         load = <Loading />
 
     }
-    if (user || gUser) {
-        navigate(from, { replace: true })
-    }
+    useEffect(() =>{
+        if (token) {
+            navigate(from, { replace: true })
+        }
+    },[token, from, navigate])
     return (
         <div>
             <div className="card max-w-sm mx-auto  text-accent shadow-2xl">

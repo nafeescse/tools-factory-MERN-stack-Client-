@@ -11,6 +11,7 @@ const Header = () => {
     const navigate = useNavigate();
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     };
     return (
         <div className="navbar bg-error text-white">
