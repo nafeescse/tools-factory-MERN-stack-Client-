@@ -1,0 +1,74 @@
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import Loading from './Loading';
+
+const MyOrders = () => {
+    const [orders, setOrders] = useState([]);
+    const [user] = useAuthState(auth);
+    useEffect(() => {
+        if (user) {
+            fetch(`http://localhost:5000/orders/?email=${user.email}`)
+                .then(res => res.json())
+                .then(data => setOrders(data))
+        }
+        else {
+            <Loading></Loading>
+        }
+    }, [])
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure? ');
+        if (proceed) {
+            const url = `http://localhost:5000/orders/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => console.log(data));
+            const rest = orders.filter(order => order._id !== id);
+            setOrders(rest);
+
+        }
+    }
+
+   
+    return (
+        <div>
+            <p className='text-3xl text-error font-bold mt-10 pb-3'>My Orders : {orders.length}</p>
+            <div class="w-full shadow-2xl ">
+                <table class="table w-full">
+                    {/* <!-- head --> */}
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* <!-- row 1 --> */}
+                        {orders.reverse().map((order, index) =>
+                            <tr>
+                                <th>{index + 1}</th>
+                                <td>{order.name}</td>
+                                <td>{order.totalPrice / order.quantity}</td>
+                                <td>{order.quantity}</td>
+                                <td>{order.totalPrice}</td>
+                                <td className='grid grid-col-1  lg:grid-cols-2 gap-1 justify-center'><button class="btn btn-success btn-xs mr-3">Pay</button>
+                                <button onClick={() => {
+                                    handleDelete(order._id)
+                                }} class="btn btn-error btn-xs">Delete</button></td>
+                            </tr>
+                        )}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default MyOrders;
