@@ -25,19 +25,7 @@ const ManageProducts = () => {
     }
 
 
-    // const handleDelete = id => {
-    //     const proceed = window.confirm('Are you sure? ');
-    //     if (proceed) {
-    //         fetch(`http://localhost:5000/tools/${id}`, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => console.log(data));
-    //         const rest = products.filter(product => product._id !== id);
-    //         setProducts(rest);
 
-    //     }
-    // }
     return (
         <div>
             

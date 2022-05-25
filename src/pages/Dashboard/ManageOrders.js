@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider,useQuery } from 'react-query'
+import { toast } from 'react-toastify';
 import Loading from '../../components/Loading';
  
 const queryClient = new QueryClient()
@@ -13,10 +14,17 @@ const queryClient = new QueryClient()
  
 const Example = () => {
     const {data: orders, error, isLoading, refetch} = useQuery('orders', ()=> fetch('http://localhost:5000/orders').then(res => res.json()));
+
+    let [status, setStatus] = useState('Pending');
+
     if(isLoading){
         return <Loading></Loading>
     }
-    if (error) return 'An error has occurred: ' + error.message
+    if (error) return 'An error has occurred: ' + error.message;
+
+
+
+
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? ');
@@ -29,16 +37,26 @@ const Example = () => {
                 .then(data => console.log(data));
             const rest = orders.filter(order => order._id !== id);
             // document.location.reload();
-       
+        }
+    }
+    
+   
+    const handleStatus = id => {
+        const proceed = window.confirm('Are you sure to make change');
+        if (proceed){
+            status = 'Shipped';
+            setStatus(status);
+            toast('Status changed successfully!! ');
 
         }
+
     }
 
     return (
         <div>
             <p className='text-3xl text-error font-bold mt-10 pb-3'>All Orders({orders.length})</p>
-            <div class="w-full shadow-2xl ">
-                <table class="table w-full">
+            <div class=" shadow-2xl ">
+                <table class="table table-compact w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -48,6 +66,7 @@ const Example = () => {
                             <th>Phone</th>
                             <th>Product</th>
                             <th>Price</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -61,7 +80,11 @@ const Example = () => {
                                 <td>{order.phone}</td>
                                 <td>{order.name}</td>
                                 <td>{order.totalPrice}</td>
-                                <td className='grid grid-col-1  lg:grid-cols-2 gap-1 justify-center'>
+                                <td className=''>
+                                <button onClick={() => {
+                                    handleStatus(order._id)
+                                }} class="btn btn-warning btn-xs">{status}</button></td>
+                                <td className=''>
                                 <button onClick={() => {
                                     handleDelete(order._id)
                                 }} class="btn btn-error btn-xs">Delete</button></td>

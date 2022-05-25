@@ -43,7 +43,7 @@ const Header = () => {
                     <li><Link to='/blogs'>Blogs</Link></li>
                     <li><Link to='/portfolio'>Portfolio</Link></li>
                     <li>{user ?
-                        <label for="dash-drawer" onClick={() => { navigate('/dashboard') }} class="btn btn-ghost drawer-button">Dashboard</label>
+                        <label htmlFor="dash-drawer" onClick={() => { navigate('/dashboard') }} class="btn btn-ghost drawer-button">Dashboard</label>
                         : <Link to='/login' > Login</Link>}</li>
                     <li>{user && <div className='text-error font-bold px-2 border-0 rounded-2xl bg-white  mx-1' onClick={logout}>Logout</div>}</li>
 
