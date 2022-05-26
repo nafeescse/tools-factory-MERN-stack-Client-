@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../firebase.init';
-import Loading from './Loading';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const AddingModal = () => {
     const [profile, setProfile] = useState([]);

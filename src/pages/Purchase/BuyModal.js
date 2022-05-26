@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../firebase.init';
+import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 
 const BuyModal = ({ tool }) => {
@@ -32,7 +32,7 @@ const BuyModal = ({ tool }) => {
             totalPrice: qty * price,
             phone: phone,
             address: address,
-            user:  name,
+            user: name,
             email: user.email
         }
         fetch('http://localhost:5000/orders', {

@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
-import { QueryClient, QueryClientProvider,useQuery } from 'react-query'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import { toast } from 'react-toastify';
-import Loading from '../../components/Loading';
- 
-const queryClient = new QueryClient()
- export default function ManageOrders() {
-   return (
-     <QueryClientProvider client={queryClient}>
-       <Example />
-     </QueryClientProvider>
-   )
- }
- 
-const Example = () => {
-    const {data: orders, error, isLoading, refetch} = useQuery('orders', ()=> fetch('http://localhost:5000/orders').then(res => res.json()));
+import Loading from '../Shared/Loading';
+
+
+
+const ManageOrders = () => {
+    const { data: orders, error, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/orders').then(res => res.json()));
 
     let [status, setStatus] = useState('Pending');
 
-    if(isLoading){
+    if (isLoading) {
         return <Loading></Loading>
     }
     if (error) return 'An error has occurred: ' + error.message;
@@ -39,11 +32,11 @@ const Example = () => {
             // document.location.reload();
         }
     }
-    
-   
+
+
     const handleStatus = id => {
         const proceed = window.confirm('Are you sure to make change');
-        if (proceed){
+        if (proceed) {
             status = 'Shipped';
             setStatus(status);
             toast('Status changed successfully!! ');
@@ -81,13 +74,13 @@ const Example = () => {
                                 <td>{order.name}</td>
                                 <td>{order.totalPrice}</td>
                                 <td className=''>
-                                <button onClick={() => {
-                                    handleStatus(order._id)
-                                }} class="btn btn-warning btn-xs">{status}</button></td>
+                                    <button onClick={() => {
+                                        handleStatus(order._id)
+                                    }} class="btn btn-warning btn-xs">{status}</button></td>
                                 <td className=''>
-                                <button onClick={() => {
-                                    handleDelete(order._id)
-                                }} class="btn btn-error btn-xs">Delete</button></td>
+                                    <button onClick={() => {
+                                        handleDelete(order._id)
+                                    }} class="btn btn-error btn-xs">Delete</button></td>
                             </tr>
                         )}
 
@@ -98,4 +91,4 @@ const Example = () => {
     );
 };
 
-// export default ManageOrders;
+export default ManageOrders;

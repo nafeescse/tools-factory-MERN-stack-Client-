@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../firebase.init';
+import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
-import Loading from '../components/Loading';
-import useToken from '../hooks/useToken';
+import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);

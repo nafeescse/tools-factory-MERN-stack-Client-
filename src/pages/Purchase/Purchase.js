@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../firebase.init';
-import BuyModal from '../components/BuyModal';
+import auth from '../../firebase.init';
+import BuyModal from './BuyModal';
 
 const Purchase = (props) => {
     const { id } = useParams();

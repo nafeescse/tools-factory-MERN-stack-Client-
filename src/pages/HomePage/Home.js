@@ -1,8 +1,9 @@
 import React from 'react';
-import Banner from '../components/Banner';
-import BusinessSummary from '../components/BusinessSummary';
-import Header from '../components/Header';
-import Products from '../components/Products';
+import AllReviews from './AllReviews';
+import Banner from './Banner';
+import BusinessSummary from './BusinessSummary';
+import Header from '../Shared/Header';
+import Products from './Products';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <Products></Products>
             <BusinessSummary></BusinessSummary>
+            <AllReviews></AllReviews>
             </div>
     );
 };

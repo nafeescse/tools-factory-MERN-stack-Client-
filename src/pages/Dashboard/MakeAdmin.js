@@ -29,14 +29,16 @@ const MakeAdmin = () => {
                 }
             })
                 .then(res => {
-                    if(res.status === 403){
+                    if (res.status === 403) {
                         toast(`Soory! You're not an Admin`);
                     }
-                    return res.json()})
-                .then(data => {console.log(data);
-                toast(`Yay!! ${email} is now an Admin`);
+                    return res.json()
+                })
+                .then(data => {
+                    console.log(data);
+                    toast(`Yay!! ${email} is now an Admin`);
                 });
-                
+
 
 
 

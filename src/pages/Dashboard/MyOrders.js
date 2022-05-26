@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
-import auth from '../firebase.init';
-import Loading from './Loading';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -16,8 +16,8 @@ const MyOrders = () => {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-                .then(res =>{ 
-                    if(res.status === 401 || res.status === 403){
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
                         navigate('/');
                     }
                     return res.json()
@@ -43,7 +43,7 @@ const MyOrders = () => {
         }
     }
 
-   
+
     return (
         <div>
             <p className='text-3xl text-error font-bold mt-10 pb-3'>My Orders({orders.length})</p>
@@ -57,7 +57,7 @@ const MyOrders = () => {
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total</th>
-                            <th>Action</th>
+                            <th className='text-center'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,10 +69,10 @@ const MyOrders = () => {
                                 <td>{order.totalPrice / order.quantity}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.totalPrice}</td>
-                                <td className='grid grid-col-1  lg:grid-cols-2 gap-1 justify-center'><button class="btn btn-success btn-xs mr-3">Pay</button>
-                                <button onClick={() => {
-                                    handleDelete(order._id)
-                                }} class="btn btn-error btn-xs">Delete</button></td>
+                                <td className='grid grid-col-1  lg:grid-cols-2 gap-1 justify-center'>{(order.paid) ? 'Paid' : <Link to={`/dashboard/payment/${order._id}`}><button class="btn btn-success btn-xs">Pay Now</button></Link>}
+                                    <button onClick={() => {
+                                        handleDelete(order._id)
+                                    }} class="btn btn-error btn-xs">Delete</button></td>
                             </tr>
                         )}
 

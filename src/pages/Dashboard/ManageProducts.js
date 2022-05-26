@@ -28,14 +28,14 @@ const ManageProducts = () => {
 
     return (
         <div>
-            
+
             <div>
                 <p className='text-3xl text-error font-bold mt-10 pb-3'>All Products({products.length})</p>
                 <div class="w-full shadow-2xl ">
                     <table class="table w-full">
                         {/* <!-- head --> */}
                         <thead>
-                            <tr  className='text-center'>
+                            <tr className='text-center'>
                                 <th></th>
                                 <th>Name</th>
                                 <th>Price</th>
@@ -48,7 +48,7 @@ const ManageProducts = () => {
                         <tbody>
                             {/* <!-- row 1 --> */}
                             {products.reverse().map((product, index) =>
-                                <tr  className='text-center'>
+                                <tr className='text-center'>
                                     <th>{index + 1}</th>
                                     <td>{product.name}</td>
                                     <td>{product.price}</td>

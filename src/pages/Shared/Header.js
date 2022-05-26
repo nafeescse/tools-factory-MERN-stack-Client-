@@ -2,8 +2,8 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useNavigationType } from 'react-router-dom';
-import logo from '../assets/img/logocar.png'
-import auth from '../firebase.init';
+import logo from '../../assets/img/logocar.png'
+import auth from '../../firebase.init';
 
 const Header = () => {
     const [user] = useAuthState(auth);

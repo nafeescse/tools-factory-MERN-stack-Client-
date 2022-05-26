@@ -1,18 +1,20 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import auth from '../firebase.init';
-import Loading from './Loading';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
+import useAdmin from '../../hooks/useAdmin';
 
-const RequireAuth = ({children}) => {
+const RequireAdmin = ({children}) => {
     const [user, loading] = useAuthState(auth);
+    const [admin, adminLoading] = useAdmin(user);
     let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+ 
 
-    if(loading){
+    if(loading ||adminLoading){
         return <div className="flex justify-center items-center h-screen"><Loading/></div>
     }
-    if (!user) {
+    if (!user || !admin) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
@@ -20,4 +22,4 @@ const RequireAuth = ({children}) => {
     
 };
 
-export default RequireAuth;
+export default RequireAdmin;

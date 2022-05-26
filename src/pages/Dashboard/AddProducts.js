@@ -3,8 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import AddingModal from '../../components/AddingModal';
-import Products from '../../components/Products';
+import AddingModal from './AddingModal';
+import Products from '../HomePage/Products';
 import auth from '../../firebase.init';
 import useAdmin from '../../hooks/useAdmin';
 

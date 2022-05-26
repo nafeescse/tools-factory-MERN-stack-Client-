@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CardTools from './CardTools';
-import Loading from './Loading';
+import Loading from '../Shared/Loading';
 
 const Products = () => {
     const [tools, setTools] = useState([]);
@@ -15,7 +15,7 @@ const Products = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-center my-8'>
                 {!tools.length && <Loading></Loading>}
-                
+
                 {
                     tools.reverse().map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
                 }
