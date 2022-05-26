@@ -47,8 +47,8 @@ const MyOrders = () => {
     return (
         <div>
             <p className='text-3xl text-error font-bold mt-10 pb-3'>My Orders({orders.length})</p>
-            <div class="w-full shadow-2xl ">
-                <table class="table w-full">
+            <div className="w-full shadow-2xl ">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -70,11 +70,11 @@ const MyOrders = () => {
                                 <td>{order.totalPrice / order.quantity}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.totalPrice}</td>
-                                <td className=''>{(order.paid) ? 'Paid' : <Link to={`/dashboard/payment/${order._id}`}><button class="btn btn-success btn-xs">Pay Now</button></Link>}
+                                <td className=''>{(order.paid) ? 'Paid' : <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-success btn-xs">Pay Now</button></Link>}
                                 </td>
                                 <td className=''><button onClick={() => {
                                     handleDelete(order._id)
-                                }} class="btn btn-error btn-xs">Delete</button>
+                                }} className="btn btn-error btn-xs">Delete</button>
                                 </td>
                             </tr>
                         )}

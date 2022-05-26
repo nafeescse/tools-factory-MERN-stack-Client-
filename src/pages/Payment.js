@@ -42,17 +42,17 @@ const Payment = () => {
         <div>
             <h2 className='text-3xl text-success'> Please pay for : {id}</h2>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 m-5'>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl">
 
-                    <div class="card-body">
+                    <div className="card-body">
                         <p className='text-success text-xl'>Hello  {orderr.user}</p>
-                        <h2 class="card-title">Thank you for ordering {orderr.name}</h2>
-                        <h2 class="card-title">Please pay  ${orderr.totalPrice}</h2>
+                        <h2 className="card-title">Thank you for ordering {orderr.name}</h2>
+                        <h2 className="card-title">Please pay  ${orderr.totalPrice}</h2>
 
                     </div>
                 </div>
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <div class="card-body">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body">
                         <Elements stripe={stripePromise}>
                             <CheckoutForm orderr={orderr}></CheckoutForm>
                         </Elements>

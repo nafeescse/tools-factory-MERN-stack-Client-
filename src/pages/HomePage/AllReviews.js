@@ -31,7 +31,7 @@ const AllReviews = () => {
     return (
         <div className='my-10'>
             <p className='text-3xl text-center font-bold'>AUTOCAR <span className='text-error'>REVIEWS</span></p>
-            <div class="carousel carousel-center max-w-screen mx-auto p-4 space-x-4 bg-white rounded-box">
+            <div className="carousel carousel-center max-w-screen mx-auto p-4 space-x-4 bg-white rounded-box">
                 {
                     allReviews?.map((review, index) => <CardReview key={index} review={review}></CardReview>)
                 }

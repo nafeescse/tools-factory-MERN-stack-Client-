@@ -104,42 +104,42 @@ const Profile = () => {
                 <p className='text-center text-error text-3xl mt-10 uppercase font-semibold'>Update Profile</p>
                 <form onSubmit={handleEdit} className='form-control flex flex-col gap-5'>
                     <div>
-                        <label class="label">
-                            <small class="label-text">Your Name</small>
+                        <label className="label">
+                            <small className="label-text">Your Name</small>
                         </label>
-                        <input name='name' type="text" placeholder="Name" class="input input-bordered w-full max-w-sm" />
+                        <input name='name' type="text" placeholder="Name" className="input input-bordered w-full max-w-sm" />
                     </div>
                     <div>
-                        <label class="label">
-                            <small class="label-text">Your Phone Number</small>
+                        <label className="label">
+                            <small className="label-text">Your Phone Number</small>
                         </label>
-                        <input name='phone' type="number" placeholder="Phone" class="input input-bordered w-full max-w-sm" />
+                        <input name='phone' type="number" placeholder="Phone" className="input input-bordered w-full max-w-sm" />
                     </div>
                     <div>
-                        <label class="label">
-                            <small class="label-text">Your address</small>
+                        <label className="label">
+                            <small className="label-text">Your address</small>
                         </label>
-                        <input name='address' type="text" placeholder="Your Address" class="input input-bordered w-full max-w-sm" />
+                        <input name='address' type="text" placeholder="Your Address" className="input input-bordered w-full max-w-sm" />
                     </div>
                     <div>
-                        <label class="label">
-                            <small class="label-text">Your Photo URL</small>
+                        <label className="label">
+                            <small className="label-text">Your Photo URL</small>
                         </label>
-                        <input name='img' type="text" placeholder="Photo URL" class="input input-bordered w-full max-w-sm" />
+                        <input name='img' type="text" placeholder="Photo URL" className="input input-bordered w-full max-w-sm" />
                     </div>
                     <div>
-                        <label class="label">
-                            <small class="label-text">Your Education</small>
+                        <label className="label">
+                            <small className="label-text">Your Education</small>
                         </label>
-                        <input name='uni' type="text" placeholder="Degree/University" class="input input-bordered w-full max-w-sm" />
+                        <input name='uni' type="text" placeholder="Degree/University" className="input input-bordered w-full max-w-sm" />
                     </div>
                     <div>
-                        <label class="label">
-                            <small class="label-text">Your LinkedIn Profile</small>
+                        <label className="label">
+                            <small className="label-text">Your LinkedIn Profile</small>
                         </label>
-                        <input name='link' type="text" placeholder="LinkedIn" class="input input-bordered w-full max-w-sm" />
+                        <input name='link' type="text" placeholder="LinkedIn" className="input input-bordered w-full max-w-sm" />
                     </div>
-                    <input type="submit" value="Edit" class="btn btn-accent nput input-bordered w-full max-w-sm" />
+                    <input type="submit" value="Edit" className="btn btn-accent nput input-bordered w-full max-w-sm" />
 
                 </form>
 

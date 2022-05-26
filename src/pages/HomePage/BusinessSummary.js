@@ -13,7 +13,7 @@ const BusinessSummary = () => {
                     <figure><GrDeliver /></figure>
                     <div className="flex flex-col mx-5">
                         <h2 className="card-title">FREE DELIVERY</h2>
-                        <p> Free shipping on all order</p>
+                        <p className='pb-2'> Free shipping on all order</p>
 
                     </div>
                 </div>
@@ -22,7 +22,7 @@ const BusinessSummary = () => {
                     <div className="flex flex-col mx-5">
                         <h2 className="card-title">24/7 SUPPORT
                         </h2>
-                        <p> Support online 24 hours</p>
+                        <p className='pb-2'> Support online 24 hours</p>
 
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const BusinessSummary = () => {
                     <div className="flex flex-col mx-5">
                         <h2 className="card-title">MEMBER DISCOUNT
                         </h2>
-                        <p> Onevery order over $30.00</p>
+                        <p className='pb-2'> Onevery order over $30.00</p>
 
                     </div>
                 </div>

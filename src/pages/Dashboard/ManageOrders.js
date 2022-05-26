@@ -48,8 +48,8 @@ const ManageOrders = () => {
     return (
         <div>
             <p className='text-3xl text-error font-bold mt-10 pb-3'>All Orders({orders.length})</p>
-            <div class=" shadow-2xl ">
-                <table class="table table-compact w-full">
+            <div className=" shadow-2xl ">
+                <table className="table table-compact w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -76,11 +76,11 @@ const ManageOrders = () => {
                                 <td className=''>
                                     <button onClick={() => {
                                         handleStatus(order._id)
-                                    }} class="btn btn-warning btn-xs">{status}</button></td>
+                                    }} className="btn btn-warning btn-xs">{status}</button></td>
                                 <td className=''>
                                     <button onClick={() => {
                                         handleDelete(order._id)
-                                    }} class="btn btn-error btn-xs">Delete</button></td>
+                                    }} className="btn btn-error btn-xs">Delete</button></td>
                             </tr>
                         )}
 

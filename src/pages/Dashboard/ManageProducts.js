@@ -31,8 +31,8 @@ const ManageProducts = () => {
 
             <div>
                 <p className='text-3xl text-error font-bold mt-10 pb-3'>All Products({products.length})</p>
-                <div class="w-full shadow-2xl ">
-                    <table class="table w-full">
+                <div className="w-full shadow-2xl ">
+                    <table className="table w-full">
                         {/* <!-- head --> */}
                         <thead>
                             <tr className='text-center'>
@@ -58,7 +58,7 @@ const ManageProducts = () => {
                                     <td className=''>
                                         <button onClick={() => {
                                             handleDelete(product._id)
-                                        }} class="btn btn-error text-white btn-xs">Delete </button></td>
+                                        }} className="btn btn-error text-white btn-xs">Delete </button></td>
                                 </tr>
                             )}
 

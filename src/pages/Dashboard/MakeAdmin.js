@@ -64,8 +64,8 @@ const MakeAdmin = () => {
     return (
         <div>
             <p className='text-3xl text-error font-bold mt-10 pb-3'>All Users({users.length})</p>
-            <div class="w-full shadow-2xl ">
-                <table class="table w-full">
+            <div className="w-full shadow-2xl ">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -83,12 +83,12 @@ const MakeAdmin = () => {
                                 <td>{user.email}</td>
 
                                 <td className=' justify-center'>
-                                    {user.role === 'admin' ? <p className='text-success'>Already an Admin</p> : <button onClick={() => { handleAdmin(user.email) }} class="btn btn-accent btn-xs">Make Admin </button>}
+                                    {user.role === 'admin' ? <p className='text-success'>Already an Admin</p> : <button onClick={() => { handleAdmin(user.email) }} className="btn btn-accent btn-xs">Make Admin </button>}
                                 </td>
                                 <td>
                                     <button onClick={() => {
                                         handleDelete(user._id)
-                                    }} class="btn btn-error btn-xs">Remove </button></td>
+                                    }} className="btn btn-error btn-xs">Remove </button></td>
                             </tr>
                         )}
                     </tbody>

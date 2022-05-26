@@ -92,8 +92,8 @@ const MyReviews = () => {
                         }}
                     />
                 </div>
-                <input name='review' type="text" placeholder='Review Details' class="input input-bordered w-full h-20 max-w-sm" />
-                <input type="submit" value="Submit" class="btn btn-primary w-full my-5 max-w-sm" />
+                <input name='review' type="text" placeholder='Review Details' className="input input-bordered w-full h-20 max-w-sm" />
+                <input type="submit" value="Submit" className="btn btn-primary w-full my-5 max-w-sm" />
             </form>
             <p className='text-5xl text-center font-bold my-5'>My <span className='text-error'>Reviews({reviews.length})</span></p>
             <div className='grid grid-cols-1  lg:grid-cols-2 gap-5 mx-10'>

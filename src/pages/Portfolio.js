@@ -36,29 +36,29 @@ const Portfolio = () => {
                 <p className='text-5xl text-primary font-bold text-left mb-5'>TECHNOLOGY USED</p>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                     <div>
-                        <div class="card w-96 bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">HTML5</h2>
-                                    <h2 class="">100%</h2></div>
-                                <progress class="progress progress-success w-84" value="100" max="100">100%</progress>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">HTML5</h2>
+                                    <h2 className="">100%</h2></div>
+                                <progress className="progress progress-success w-84" value="100" max="100">100%</progress>
 
                             </div>
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">CSS3</h2>
-                                    <h2 class="">90%</h2></div>
-                                <progress class="progress progress-success w-84" value="90" max="100">90%</progress>
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">CSS3</h2>
+                                    <h2 className="">90%</h2></div>
+                                <progress className="progress progress-success w-84" value="90" max="100">90%</progress>
 
                             </div>
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">JAVASCRIPT(ES6)</h2>
-                                    <h2 class="">85%</h2></div>
-                                <progress class="progress progress-success w-84" value="85" max="100">85%</progress>
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">JAVASCRIPT(ES6)</h2>
+                                    <h2 className="">85%</h2></div>
+                                <progress className="progress progress-success w-84" value="85" max="100">85%</progress>
 
                             </div>
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">REACT JS</h2>
-                                    <h2 class="">90%</h2></div>
-                                <progress class="progress progress-success w-84" value="90" max="100">90%</progress>
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">REACT JS</h2>
+                                    <h2 className="">90%</h2></div>
+                                <progress className="progress progress-success w-84" value="90" max="100">90%</progress>
 
                             </div>
 
@@ -66,29 +66,29 @@ const Portfolio = () => {
 
                     </div>
                     <div>
-                        <div class="card w-96 bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">ROUTER</h2>
-                                    <h2 class="">90%</h2></div>
-                                <progress class="progress progress-success w-84" value="90" max="100">90%</progress>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">ROUTER</h2>
+                                    <h2 className="">90%</h2></div>
+                                <progress className="progress progress-success w-84" value="90" max="100">90%</progress>
 
                             </div>
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">NODE JS</h2>
-                                    <h2 class="">80%</h2></div>
-                                <progress class="progress progress-success w-84" value="80" max="100">80%</progress>
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">NODE JS</h2>
+                                    <h2 className="">80%</h2></div>
+                                <progress className="progress progress-success w-84" value="80" max="100">80%</progress>
 
                             </div>
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">EXPRESS JS</h2>
-                                    <h2 class="">85%</h2></div>
-                                <progress class="progress progress-success w-84" value="85" max="100">85%</progress>
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">EXPRESS JS</h2>
+                                    <h2 className="">85%</h2></div>
+                                <progress className="progress progress-success w-84" value="85" max="100">85%</progress>
 
                             </div>
-                            <div class="card-body">
-                                <div className='card-title flex justify-between'><h2 class="">MONGODB</h2>
-                                    <h2 class="">85%</h2></div>
-                                <progress class="progress progress-success w-84" value="85" max="100">85%</progress>
+                            <div className="card-body">
+                                <div className='card-title flex justify-between'><h2 className="">MONGODB</h2>
+                                    <h2 className="">85%</h2></div>
+                                <progress className="progress progress-success w-84" value="85" max="100">85%</progress>
 
                             </div>
 
@@ -106,8 +106,8 @@ const Portfolio = () => {
 
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-                    <div class="card w-96 bg-base-100 shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
                             <a href="https://wireehouse.web.app/">
                                 <img src={wirehouse} alt="" />
                             </a>
@@ -117,19 +117,19 @@ const Portfolio = () => {
 
                     </div>
 
-                    <div class="card w-96 bg-base-100 shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
                             <a href="https://surfacepro8.netlify.app">
                                 <img src={cv} alt="" />
                             </a>
 
                         </div>
-                        <p  className='text-3xl p-2 tex-primary'>Smartphone Reviews Site</p>
+                        <p className='text-3xl p-2 tex-primary'>Smartphone Reviews Site</p>
 
                     </div>
 
-                    <div class="card w-96 bg-base-100 shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
                             <a href="http://nafees.unaux.com/">
                                 <img src={surface} alt="" />
                             </a>
