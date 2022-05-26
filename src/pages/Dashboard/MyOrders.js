@@ -10,7 +10,7 @@ const MyOrders = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`https://morning-crag-21766.herokuapp.com//order/?email=${user.email}`, {
+            fetch(`http://localhost:5000/order/?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? ');
         if (proceed) {
-            const url = `https://morning-crag-21766.herokuapp.com//order/${id}`;
+            const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -58,6 +58,7 @@ const MyOrders = () => {
                             <th>Quantity</th>
                             <th>Total</th>
                             <th className='text-center'>Actions</th>
+                            <th className='text-center'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,10 +70,12 @@ const MyOrders = () => {
                                 <td>{order.totalPrice / order.quantity}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.totalPrice}</td>
-                                <td className='grid grid-col-1  lg:grid-cols-2 gap-1 justify-center'>{(order.paid) ? 'Paid' : <Link to={`/dashboard/payment/${order._id}`}><button class="btn btn-success btn-xs">Pay Now</button></Link>}
-                                    <button onClick={() => {
-                                        handleDelete(order._id)
-                                    }} class="btn btn-error btn-xs">Delete</button></td>
+                                <td className=''>{(order.paid) ? 'Paid' : <Link to={`/dashboard/payment/${order._id}`}><button class="btn btn-success btn-xs">Pay Now</button></Link>}
+                                </td>
+                                <td className=''><button onClick={() => {
+                                    handleDelete(order._id)
+                                }} class="btn btn-error btn-xs">Delete</button>
+                                </td>
                             </tr>
                         )}
 

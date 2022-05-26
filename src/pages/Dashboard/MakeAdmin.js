@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const MakeAdmin = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('https://morning-crag-21766.herokuapp.com//users', {
+        fetch('http://localhost:5000/users', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -21,7 +21,7 @@ const MakeAdmin = () => {
     const handleAdmin = email => {
         const proceed = window.confirm('Are you sure to make him Admin? ');
         if (proceed) {
-            const url = `https://morning-crag-21766.herokuapp.com//users/admin/${email}`;
+            const url = `http://localhost:5000/users/admin/${email}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -48,7 +48,7 @@ const MakeAdmin = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? ');
         if (proceed) {
-            const url = `https://morning-crag-21766.herokuapp.com//users/${id}`;
+            const url = `http://localhost:5000/users/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

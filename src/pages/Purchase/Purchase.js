@@ -10,7 +10,7 @@ const Purchase = (props) => {
     const [user] = useAuthState(auth);
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `https://morning-crag-21766.herokuapp.com//tools/${id}`;
+        const url = `http://localhost:5000/tools/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data));

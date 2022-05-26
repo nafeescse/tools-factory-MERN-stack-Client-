@@ -9,7 +9,7 @@ const AllReviews = () => {
     const [allReviews, setallReviews] = useState([]);
     useEffect(() => {
         if (user) {
-            fetch(`https://morning-crag-21766.herokuapp.com//reviews`, {
+            fetch(`http://localhost:5000/reviews`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

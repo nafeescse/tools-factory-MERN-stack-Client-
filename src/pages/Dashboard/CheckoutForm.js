@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = ({ appointment }) => {
+const CheckoutForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -10,25 +10,30 @@ const CheckoutForm = ({ appointment }) => {
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    const { _id, price, email, user } = appointment;
+    const { _id, totalPrice, email, user } = props.orderr;
+
+    console.log('from chq', _id, totalPrice, email, user);
 
     useEffect(() => {
-        fetch('https://morning-crag-21766.herokuapp.com//create-payment-intent', {
+        fetch('http://localhost:5000/create/payment', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                'content-type': 'application/json'
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ price })
+            body: JSON.stringify({ totalPrice })
         })
             .then(res => res.json())
             .then(data => {
+                // console.log('csecret', clientSecret)
                 if (data?.clientSecret) {
+                    // console.log('csecret',data.clientSecret)
                     setClientSecret(data.clientSecret);
+                    
                 }
             });
 
-    }, [price])
+    }, [totalPrice])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -37,7 +42,7 @@ const CheckoutForm = ({ appointment }) => {
             return;
         }
 
-        const card = elements.getElement(CardElement);
+        const card =  elements.getElement(CardElement);
 
         if (card === null) {
             return;
@@ -76,15 +81,15 @@ const CheckoutForm = ({ appointment }) => {
             setSuccess('Congrats! Your payment is completed.')
 
             // store payment on database
-            const payment = {
+            const payment =  {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://morning-crag-21766.herokuapp.com//orders/${_id}`, {
+            fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    authorization : `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(payment)
             }).then(res => res.json())
@@ -114,7 +119,9 @@ const CheckoutForm = ({ appointment }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || success}>
+                <button className='btn btn-success btn-sm mt-4' type="submit"
+                //  disabled={!stripe || !clientSecret || success} 
+                 >
                     Pay
                 </button>
             </form>

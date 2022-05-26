@@ -9,44 +9,35 @@ import CheckoutForm from './Dashboard/CheckoutForm';
 import Loading from './Shared/Loading';
 
 const stripePromise = loadStripe('pk_test_51L3USNLd7zZ2ao66p1fSqEZNa7PTebF1PjldEySGJ74NGAto72w6Ix5aIwXsABGIPo62ISY6BgGK5F6v543Y5meV00cSzRq8IO');
+
+
+
 const Payment = () => {
 
     const { id } = useParams();
-    const url = `https://morning-crag-21766.herokuapp.com//orders/${id}`;
-    const { data: appointment, isLoading } = useQuery(['orders', id], () => fetch(url, {
-        method: 'GET',
-        headers: {
-            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    const url = `http://localhost:5000/orders/${id}`;
+
+    const [user] = useAuthState(auth)
+    const [orderr, setOrderr] = useState([]);
+
+    useEffect(() => {
+        if (user) {
+
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            }).then(res => res.json())
+                .then(data => setOrderr(data))
         }
-    }).then(res => res.json()));
-
-    if (isLoading) {
-        return <Loading></Loading>
-    }
-
+        else {
+            return <Loading></Loading>
+        }
+    }, [])
 
 
-    // const [user] = useAuthState(auth)
-    // const [orderr, setOrderr] = useState([]);
-
-    // useEffect(() => {
-    //     if (user) {
-
-    //         fetch(url, {
-    //             method: 'GET',
-    //             headers: {
-    //                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-    //             }
-    //         }).then(res => res.json())
-    //             .then(data => setOrderr(data))
-    //     }
-    //     else {
-    //         return <Loading></Loading>
-    //     }
-    // }, [id])
-
-
-    console.log('orders: ', appointment);
+    console.log('orders: ', orderr);
     return (
         <div>
             <h2 className='text-3xl text-success'> Please pay for : {id}</h2>
@@ -54,15 +45,16 @@ const Payment = () => {
                 <div class="card w-96 bg-base-100 shadow-xl">
 
                     <div class="card-body">
-                        <p>Hello  </p>
-                        <h2 class="card-title">Card title!</h2>
+                        <p className='text-success text-xl'>Hello  {orderr.user}</p>
+                        <h2 class="card-title">Thank you for ordering {orderr.name}</h2>
+                        <h2 class="card-title">Please pay  ${orderr.totalPrice}</h2>
 
                     </div>
                 </div>
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <div class="card-body">
                         <Elements stripe={stripePromise}>
-                            <CheckoutForm appointment={appointment}></CheckoutForm>
+                            <CheckoutForm orderr={orderr}></CheckoutForm>
                         </Elements>
                     </div>
                 </div>
