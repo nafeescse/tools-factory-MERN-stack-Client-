@@ -15,7 +15,7 @@ const CheckoutForm = (props) => {
     console.log('from chq', _id, totalPrice, email, user);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create/payment', {
+        fetch('https://morning-crag-21766.herokuapp.com/create/payment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -29,7 +29,7 @@ const CheckoutForm = (props) => {
                 if (data?.clientSecret) {
                     // console.log('csecret',data.clientSecret)
                     setClientSecret(data.clientSecret);
-                    
+
                 }
             });
 
@@ -42,7 +42,7 @@ const CheckoutForm = (props) => {
             return;
         }
 
-        const card =  elements.getElement(CardElement);
+        const card = elements.getElement(CardElement);
 
         if (card === null) {
             return;
@@ -81,15 +81,15 @@ const CheckoutForm = (props) => {
             setSuccess('Congrats! Your payment is completed.')
 
             // store payment on database
-            const payment =  {
+            const payment = {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
-                    authorization : `Bearer ${localStorage.getItem('accessToken')}`
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(payment)
             }).then(res => res.json())
@@ -121,7 +121,7 @@ const CheckoutForm = (props) => {
                 />
                 <button className='btn btn-success btn-sm mt-4' type="submit"
                 //  disabled={!stripe || !clientSecret || success} 
-                 >
+                >
                     Pay
                 </button>
             </form>

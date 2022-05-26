@@ -13,7 +13,7 @@ const Profile = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/orders/${user.email}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com/orders/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -29,7 +29,7 @@ const Profile = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/profile/${user.email}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com/profile/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -66,7 +66,7 @@ const Profile = () => {
             link: link,
         }
 
-        fetch('http://localhost:5000/profile', {
+        fetch('https://morning-crag-21766.herokuapp.com/profile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
