@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 const Products = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tools')
+        fetch('https://morning-crag-21766.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])

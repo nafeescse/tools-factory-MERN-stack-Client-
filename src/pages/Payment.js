@@ -15,7 +15,7 @@ const Payment = () => {
     const { id } = useParams();
     useEffect(() => {
         if (user) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://morning-crag-21766.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'GET',
                 headers: {
