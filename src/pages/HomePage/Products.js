@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 const Products = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('https://morning-crag-21766.herokuapp.com/tools')
+        fetch('https://morning-crag-21766.herokuapp.com//tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])
@@ -17,7 +17,7 @@ const Products = () => {
                 {!tools.length && <Loading></Loading>}
 
                 {
-                    tools.reverse().map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
+                    tools.reverse()?.map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
                 }
             </div>
 

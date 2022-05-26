@@ -35,7 +35,7 @@ const BuyModal = ({ tool }) => {
             user: name,
             email: user.email
         }
-        fetch('https://morning-crag-21766.herokuapp.com/orders', {
+        fetch('https://morning-crag-21766.herokuapp.com//orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

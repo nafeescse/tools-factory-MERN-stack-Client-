@@ -13,7 +13,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, price, email, user } = appointment;
 
     useEffect(() => {
-        fetch('https://morning-crag-21766.herokuapp.com/create-payment-intent', {
+        fetch('https://morning-crag-21766.herokuapp.com//create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckoutForm = ({ appointment }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://morning-crag-21766.herokuapp.com/orders/${_id}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com//orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

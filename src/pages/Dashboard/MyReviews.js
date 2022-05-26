@@ -16,7 +16,7 @@ const MyReviews = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`https://morning-crag-21766.herokuapp.com/profile/${user.email}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com//profile/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,7 +24,7 @@ const MyReviews = () => {
             })
                 .then(res => res.json())
                 .then(data => setProfile(data));
-            fetch(`https://morning-crag-21766.herokuapp.com/reviews/${user.email}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com//reviews/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -38,7 +38,7 @@ const MyReviews = () => {
         }
     }
 
-        , [profile, reviews])
+        , [reviews])
     // console.log();
 
 
@@ -60,7 +60,7 @@ const MyReviews = () => {
                 review: review,
                 email: profile.email,
             }
-            fetch('https://morning-crag-21766.herokuapp.com/reviews', {
+            fetch('https://morning-crag-21766.herokuapp.com//reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ const MyReviews = () => {
             <div className='grid grid-cols-1  lg:grid-cols-2 gap-5 mx-10'>
 
                 {
-                    reviews.map(review => <CardReview key={review._id} review={review}></CardReview>
+                    reviews?.map(review => <CardReview key={review._id} review={review}></CardReview>
 
 
                     )

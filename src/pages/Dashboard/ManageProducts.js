@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://morning-crag-21766.herokuapp.com/tools')
+        fetch('https://morning-crag-21766.herokuapp.com//tools')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [products]);
@@ -12,7 +12,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? ');
         if (proceed) {
-            const url = `https://morning-crag-21766.herokuapp.com/tools/${id}`;
+            const url = `https://morning-crag-21766.herokuapp.com//tools/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -47,7 +47,7 @@ const ManageProducts = () => {
                         </thead>
                         <tbody>
                             {/* <!-- row 1 --> */}
-                            {products.reverse().map((product, index) =>
+                            {products.reverse()?.map((product, index) =>
                                 <tr className='text-center'>
                                     <th>{index + 1}</th>
                                     <td>{product.name}</td>

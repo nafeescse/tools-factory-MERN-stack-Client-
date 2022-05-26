@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 
 
 const ManageOrders = () => {
-    const { data: orders, error, isLoading, refetch } = useQuery('orders', () => fetch('https://morning-crag-21766.herokuapp.com/orders').then(res => res.json()));
+    const { data: orders, error, isLoading, refetch } = useQuery('orders', () => fetch('https://morning-crag-21766.herokuapp.com//orders').then(res => res.json()));
 
     let [status, setStatus] = useState('Pending');
 
@@ -22,7 +22,7 @@ const ManageOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? ');
         if (proceed) {
-            const url = `https://morning-crag-21766.herokuapp.com/orders/${id}`;
+            const url = `https://morning-crag-21766.herokuapp.com//orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -65,7 +65,7 @@ const ManageOrders = () => {
                     </thead>
                     <tbody>
                         {/* <!-- row 1 --> */}
-                        {orders.reverse().map((order, index) =>
+                        {orders.reverse()?.map((order, index) =>
                             <tr key={index} refetch={refetch}>
                                 <th>{index + 1}</th>
                                 <td>{order.user}</td>

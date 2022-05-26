@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L3USNLd7zZ2ao66p1fSqEZNa7PTebF1PjldE
 const Payment = () => {
 
     const { id } = useParams();
-    const url = `https://morning-crag-21766.herokuapp.com/orders/${id}`;
+    const url = `https://morning-crag-21766.herokuapp.com//orders/${id}`;
     const { data: appointment, isLoading } = useQuery(['orders', id], () => fetch(url, {
         method: 'GET',
         headers: {

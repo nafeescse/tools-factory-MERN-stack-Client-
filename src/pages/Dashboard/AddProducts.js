@@ -36,7 +36,7 @@ const AddProducts = () => {
             price: price,
             description: description
         }
-        fetch('https://morning-crag-21766.herokuapp.com/tools', {
+        fetch('https://morning-crag-21766.herokuapp.com//tools', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
