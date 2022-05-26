@@ -6,23 +6,23 @@ const Footer = () => {
         <footer class="footer p-10 bg-neutral text-neutral-content">
             <div>
                 <span class="footer-title">Services</span>
-                <Link class="link link-hover">Branding</Link>
-                <Link class="link link-hover">Design</Link>
-                <Link class="link link-hover">Marketing</Link>
-                <Link class="link link-hover">Advertisement</Link>
+                <a href='#' class="link link-hover">Branding</a>
+                <a href='#' class="link link-hover">Design</a>
+                <a href='#' class="link link-hover">Marketing</a>
+                <a href='#' class="link link-hover">Advertisement</a>
             </div>
             <div>
                 <span class="footer-title">Company</span>
-                <Link class="link link-hover">About us</Link>
-                <Link class="link link-hover">Contact</Link>
-                <Link class="link link-hover">Jobs</Link>
-                <Link class="link link-hover">Press kit</Link>
+                <a href='#' class="link link-hover">About us</a>
+                <a href='#' class="link link-hover">Contact</a>
+                <a href='#' class="link link-hover">Jobs</a>
+                <a href='#' class="link link-hover">Press kit</a>
             </div>
             <div>
                 <span class="footer-title">Legal</span>
-                <Link class="link link-hover">Terms of use</Link>
-                <Link class="link link-hover">Privacy policy</Link>
-                <Link class="link link-hover">Cookie policy</Link>
+                <a href='#' class="link link-hover">Terms of use</a>
+                <a href='#' class="link link-hover">Privacy policy</a>
+                <a href='#' class="link link-hover">Cookie policy</a>
             </div>
         </footer>
     );
