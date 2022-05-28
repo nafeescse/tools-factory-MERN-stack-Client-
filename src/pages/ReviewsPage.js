@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import CardTools from './CardTools';
-import Loading from '../Shared/Loading';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import AllToolsCard from './HomePage/AllToolsCard';
+import CardReview from './HomePage/CardReview';
+import CardTools from './HomePage/CardTools';
+import Loading from './Shared/Loading';
 
-const Products = () => {
+const ReviewsPage = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
         fetch('https://morning-crag-21766.herokuapp.com/tools')
@@ -18,18 +21,14 @@ const Products = () => {
                 {!tools.length && <Loading></Loading>}
 
                 {
-                    tools.slice(0, 6).reverse().map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
+                    tools.reverse().map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
                 }
 
             </div>
-            <div className='flex justify-center'>
-                <Link to='/allReviews'>
-                    <button className="btn btn-error font-bold text-white text-xl">See all Products</button>
-                </Link>
-            </div>
+            
 
         </div>
     );
 };
 
-export default Products;
+export default ReviewsPage;

@@ -16,18 +16,18 @@ const CheckoutForm = (props) => {
     const { _id, totalPrice, email, user } = props.orderr;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://morning-crag-21766.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
                 // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({totalPrice})
+            body: JSON.stringify({ totalPrice })
         })
             .then(res => res.json())
             .then(data => {
                 if (data.client_secret) {
-                    console.log('client_secret:',data.client_secret)
+                    console.log('client_secret:', data.client_secret)
                     setClientSecret(data.client_secret);
 
                 }
@@ -56,7 +56,7 @@ const CheckoutForm = (props) => {
         setCardError(error?.message || '')
         setSuccess('');
         setProcessing(true);
-        if(processing){
+        if (processing) {
             return <Loading></Loading>
         }
 
@@ -93,7 +93,7 @@ const CheckoutForm = (props) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://morning-crag-21766.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'
@@ -107,7 +107,7 @@ const CheckoutForm = (props) => {
                 }
                 )
 
-               
+
 
         }
     }

@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 
 
 const ManageOrders = () => {
-    const { data: orders, error, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/orders').then(res => res.json()));
+    const { data: orders, error, isLoading, refetch } = useQuery('orders', () => fetch('https://morning-crag-21766.herokuapp.com/orders').then(res => res.json()));
 
     // let [status, setStatus] = useState('Pending');
 
@@ -22,7 +22,7 @@ const ManageOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? ');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://morning-crag-21766.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -37,18 +37,18 @@ const ManageOrders = () => {
     const handleStatus = id => {
         const proceed = window.confirm('Are you sure to make change? ');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://morning-crag-21766.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'PUT'
             })
-                .then(res =>  res.json())
+                .then(res => res.json())
                 .then(data => {
                     console.log(data);
                     toast(`Yay!! order status changed successfully`);
                     refetch();
                 });
-                
-                // console.log(data?.status);
+
+            // console.log(data?.status);
         }
     }
 
@@ -84,8 +84,8 @@ const ManageOrders = () => {
                                 <td className=''>
                                     <button onClick={() => {
                                         handleStatus(order._id)
-                                    }} className={order.status === "Shipped" ? "btn btn-success btn-xs " : "btn btn-warning btn-xs" }> {order.status === "Shipped" ? order.status : "Pending"} </button>
-                                    </td>
+                                    }} className={order.status === "Shipped" ? "btn btn-success btn-xs " : "btn btn-warning btn-xs"}> {order.status === "Shipped" ? order.status : "Pending"} </button>
+                                </td>
                                 <td className=''>
                                     <button onClick={() => {
                                         handleDelete(order._id)

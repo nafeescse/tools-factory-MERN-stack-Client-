@@ -23,6 +23,8 @@ import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import RequireAdmin from './pages/Login/RequireAdmin';
 import NotFound from './pages/Shared/NotFound';
 import Payment from './pages/Payment';
+import ReviewsPage from './pages/ReviewsPage';
+import AllToolsCard from './pages/HomePage/AllToolsCard';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
         <Route  path='makeadmin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/allReviews' element={<ReviewsPage></ReviewsPage>}></Route>
+        <Route path='/allReviews/allReviews/:id' element={<AllToolsCard></AllToolsCard>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
