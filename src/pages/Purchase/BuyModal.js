@@ -35,7 +35,7 @@ const BuyModal = ({ tool }) => {
             user: name,
             email: user.email
         }
-        fetch('https://morning-crag-21766.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const BuyModal = ({ tool }) => {
             .then(data => {
                 console.log('success', data);
                 toast('Order Placed successfully!!!');
-                navigate('/');
+                navigate('/dashboard');
             })
         console.log('order', order);
 

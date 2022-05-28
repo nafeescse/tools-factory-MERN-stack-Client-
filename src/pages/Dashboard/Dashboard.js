@@ -27,8 +27,8 @@ const Dashboard = () => {
                         {/* <!-- Sidebar content here --> */}
                         <h2 className='text-2xl text-error font-bold text-start'>Dashboard</h2>
                         <div className="divider"></div>
-                        <li><Link to="/dashboard">My Orders</Link></li>
-                        <li><Link to="/dashboard/reviews">My Reviews</Link></li>
+                        {!admin && <li><Link to="/dashboard">My Orders</Link></li>}
+                        {!admin && <li><Link to="/dashboard/reviews">My Reviews</Link></li>}
                         {admin && <li><Link to="/dashboard/addproducts">Add Products</Link></li>}
                         {admin && <li><Link to="/dashboard/manageorders">Manage All Orders</Link></li>}
                         {admin && <li><Link to="/dashboard/manageproducts">Manage Products</Link></li>}

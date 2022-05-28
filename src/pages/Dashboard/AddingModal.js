@@ -8,7 +8,7 @@ const AddingModal = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`https://morning-crag-21766.herokuapp.com/profile/${user.email}`, {
+            fetch(`http://localhost:5000/profile/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

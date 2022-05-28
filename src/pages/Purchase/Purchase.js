@@ -10,7 +10,7 @@ const Purchase = (props) => {
     const [user] = useAuthState(auth);
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `https://morning-crag-21766.herokuapp.com/tools/${id}`;
+        const url = `http://localhost:5000/tools/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data));
@@ -20,7 +20,7 @@ const Purchase = (props) => {
 
             <p className='text-center text-error text-3xl'>Please complete the purchase order</p>
 
-            <p className='text-center text-error text-3xl mt-10 uppercase'>Customer Details</p>
+            <p className='text-center text-error text-3xl my-5 uppercase font-bold '>Customer Details</p>
             <div className="card lg:card-side bg-error shadow-xl mx-6 lg:mx-12">
                 <div className="card-body">
                     <h2 className="card-title flex justify-between">
@@ -30,15 +30,15 @@ const Purchase = (props) => {
                     <p className='text-justify font-bold'>Phone No: 01792615315</p>
 
                 </div>
-            </div>
-            <p className='text-center text-error text-3xl mt-10 uppercase'>Product Details</p>
-            <div className="card lg:card-side bg-base-100 shadow-xl border-2 border-error mx-6 lg:mx-12">
-                <figure className='bg-error'><img className='px-' src={tool.img} alt="Album" /></figure>
+            </div >
+            <p className='text-center text-error text-3xl my-10 uppercase font-bold'>Product Details</p>
+            <div className="card lg:card-side bg-base-100 shadow-2xl shadow-error mx-10 lg:mx-12 ">
+                <figure className='m-5 w-3/4 min-w-1/2 max-w-11/12 mx-auto'><img className='px-' src={tool.img} alt="Album" /></figure>
 
                 <div className="card-body">
-                    <h2 className="card-title flex justify-between">
+                    <h2 className="card-title flex justify-between text-5xl">
                         {tool.name}
-                        <div className="badge badge-success">{tool?.offer}</div>
+                        <div className="badge badge-success">{tool?.offer}%</div>
                     </h2>
                     <p className='text-justify'>{tool.description}</p>
                     <p className='text-justify font-bold text-4xl'>Price: ${tool.price}</p>

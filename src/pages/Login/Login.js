@@ -103,7 +103,7 @@ const Login = () => {
                         <input type='submit' value="Login" className="btn btn-error text-white
                          w-full" />
                     </form>
-                    <p>New to Doctors Portal? <Link className='text-error' to="/signup">Create new account</Link></p>
+                    <p>New to Autocar? <Link className='text-error' to="/signup">Create new account</Link></p>
 
 
                     <div className="divider">OR</div>

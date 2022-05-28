@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 const Products = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('https://morning-crag-21766.herokuapp.com/tools')
+        fetch('http://localhost:5000/tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])
@@ -17,15 +17,13 @@ const Products = () => {
                 {!tools.length && <Loading></Loading>}
 
                 {
-                    tools.reverse()?.map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
+                    tools.slice(0, 6).reverse().map(tool => <CardTools tool={tool} key={tool.id}></CardTools>)
                 }
+                
             </div>
-
-
-
-
-
-
+            <div className='flex justify-center'>
+                    <button className="btn btn-error font-bold text-white text-xl">See all Products</button>
+                </div>
 
         </div>
     );

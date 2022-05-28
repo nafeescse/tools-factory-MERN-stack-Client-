@@ -15,7 +15,7 @@ const CardReview = ({ review }) => {
                             </div>
                         </div>
                         <div className='flex flex-col mx-4 items-start'>
-                            <h2 className="card-title text-justify text-3xl">{review.name || user.displayName || user.email}</h2>
+                            <h2 className="card-title text-justify text-3xl">{review.name  || user.displayName }</h2>
                             <p>{review.phone}</p>
                             <p className='text-xl'>{review.ratings}star</p>
                         </div>

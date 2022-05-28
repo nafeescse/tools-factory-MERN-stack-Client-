@@ -16,7 +16,7 @@ const MyReviews = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`https://morning-crag-21766.herokuapp.com/profile/${user.email}`, {
+            fetch(`http://localhost:5000/profile/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,7 +24,7 @@ const MyReviews = () => {
             })
                 .then(res => res.json())
                 .then(data => setProfile(data));
-            fetch(`https://morning-crag-21766.herokuapp.com/reviews/${user.email}`, {
+            fetch(`http://localhost:5000/reviews/${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -60,7 +60,7 @@ const MyReviews = () => {
                 review: review,
                 email: profile.email,
             }
-            fetch('https://morning-crag-21766.herokuapp.com/reviews', {
+            fetch('http://localhost:5000/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ const AllReviews = () => {
     const [allReviews, setallReviews] = useState([]);
     useEffect(() => {
         if (user) {
-            fetch(`https://morning-crag-21766.herokuapp.com/reviews`, {
+            fetch(`http://localhost:5000/reviews`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -17,7 +17,7 @@ const AllReviews = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    console.log('data',data);
                     setallReviews(data)
                 })
         }
@@ -33,7 +33,7 @@ const AllReviews = () => {
             <p className='text-3xl text-center font-bold'>AUTOCAR <span className='text-error'>REVIEWS</span></p>
             <div className="carousel carousel-center max-w-screen mx-auto p-4 space-x-4 bg-white rounded-box">
                 {
-                    allReviews?.map((review, index) => <CardReview key={index} review={review}></CardReview>)
+                    allReviews.slice(0).reverse().map((review, index) => <CardReview key={index} review={review}></CardReview>)
                 }
 
             </div>
